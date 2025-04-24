@@ -1,7 +1,10 @@
-type: "library"
-lang: "cpp"
-url: "https://github.com/vokegpu/ekg-ui-library"
-cmake: "./"
-toolchain: "Ninja"
-include-dirs: ["./include"]
-binary-dirs: [win32: "./build/windows", win64: "./build/windows"]
+--type library
+--tag ekg
+--url https://github.com/vokegpu/ekg-ui-library
+--cmake-dir .
+--generator Ninja
+--include-dirs ./include/ekg
+--binary-win-32-dirs ./lib/windows/
+--binary-win-64-dirs ./lib/windows/
+--binary-linux-64-dirs ./lib/linux/
+--binary-linux-32-dirs ./lib/linux/
