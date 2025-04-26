@@ -1,6 +1,7 @@
 --type library
 --tag ekg
---url https://github.com/vokegpu/ekg-ui-library
+--url https://github.com/vokegpu/ekg-ui-library.git
+--git-clone-args "--depth 64"
 --cmake-dir .
 --generator Ninja
 --include-dirs ./include/ekg
