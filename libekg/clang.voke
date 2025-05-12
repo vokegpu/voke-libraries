@@ -1,12 +1,9 @@
---type library
 --tag ekg
---build-system cmake
---target clang-msvc64 clang-mingw64 clang64
+--build-system cmake install
 --url https://github.com/vokegpu/ekg-ui-library.git
 --git-clone-args "--depth 64"
---include-dirs ./include/ekg
---binary-win-32-dirs ./lib/windows/
---binary-win-64-dirs ./lib/windows/
---binary-linux-64-dirs ./lib/linux/
---binary-linux-32-dirs ./lib/linux/
---run "cmake -S . -B $cmake-build-dir -G Ninja -D CMAKE_CXX_COMPILER=$cpp && cmake --build $cmake-build-dir"
+--operation "--tag windows --type binary --targets clang-msvc64 clang-msvc32 --files $cmake-install-dir/lib/*"
+--operation "--tag windows --type include --files $cmake-install-dir/include/ekg"
+--operation "--tag linux --type binary --targets clang64 clang32 --files $cmake-install-dir/lib"
+--operation "--tag linux --type include --files $cmake-install-dir/include/ekg"
+--run "cmake -S . -B $cmake-build-dir -G Ninja -D CMAKE_CXX_COMPILER=$cpp -D CMAKE_INSTALL_PREFIX=$cmake-install-prefix && cmake --build $cmake-build-dir"
