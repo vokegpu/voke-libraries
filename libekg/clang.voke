@@ -6,4 +6,4 @@
 --operation "--tag windows --type include --files ${cmake-install-dir/include/ekg"
 --operation "--tag linux --type binary --targets clang64 clang32 --files ${cmake-install-dir}/lib}"
 --operation "--tag linux --type include --files ${cmake-install-dir}/include/ekg"
---run "cmake -S . -B ${cmake-build-dir} -G Ninja -D CMAKE_CXX_COMPILER=${cpp} && cmake --build ${cmake-build-dir}"
+--run "cmake -S . -B ${cmake-build-dir} -G Ninja -D CMAKE_CXX_COMPILER=${cpp} -D CMAKE_INSTALL_PREFIX=${cmake-install-dir} && cmake --build ${cmake-build-dir}"
